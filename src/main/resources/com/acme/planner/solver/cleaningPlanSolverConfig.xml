@@ -3,19 +3,13 @@
   <!--<environmentMode>FAST_ASSERT</environmentMode>-->
 
   <!-- Domain model configuration -->
-  <solutionClass>org.optaplanner.examples.cloudbalancing.domain.CloudBalance</solutionClass>
-  <planningEntityClass>org.optaplanner.examples.cloudbalancing.domain.CloudProcess</planningEntityClass>
+  <solutionClass>com.acme.planning.model.CleaningSolution</solutionClass>
+  <planningEntityClass>com.acme.planning.model.Cleaner</planningEntityClass>
 
   <!-- Score configuration -->
   <scoreDirectorFactory>
     <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
-    <!--<simpleScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.solver.score.CloudBalancingSimpleScoreCalculator</simpleScoreCalculatorClass>-->
-    <!--<simpleScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.solver.score.CloudBalancingMapBasedSimpleScoreCalculator</simpleScoreCalculatorClass>-->
-    <!--<incrementalScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.solver.score.CloudBalancingIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
-    <scoreDrl>/org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
-    <!--<assertionScoreDirectorFactory>-->
-      <!--<incrementalScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.solver.score.CloudBalancingIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
-    <!--</assertionScoreDirectorFactory>-->
+    <scoreDrl>/com/acme/planner/solver/cleaningPlanScoreRules.drl</scoreDrl>
   </scoreDirectorFactory>
 
   <!-- Optimization algorithms configuration -->

@@ -27,8 +27,7 @@ public class CleaningSolution extends AbstractPersistable implements
 	private List<Cleaner> cleanerList;
 	private List<House> houseToCleanList;
 
-	// @XStreamConverter(value = XStreamScoreConverter.class, types =
-	// {HardSoftScoreDefinition.class})
+
 	private HardSoftScore score;
 
 	public Collection<? extends Object> getProblemFacts() {
@@ -63,46 +62,6 @@ public class CleaningSolution extends AbstractPersistable implements
 
 	public void setHouseToCleanList(List<House> houseToCleanList) {
 		this.houseToCleanList = houseToCleanList;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((cleanerList == null) ? 0 : cleanerList.hashCode());
-		result = prime
-				* result
-				+ ((houseToCleanList == null) ? 0 : houseToCleanList.hashCode());
-		result = prime * result + ((score == null) ? 0 : score.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CleaningSolution other = (CleaningSolution) obj;
-		if (cleanerList == null) {
-			if (other.cleanerList != null)
-				return false;
-		} else if (!cleanerList.equals(other.cleanerList))
-			return false;
-		if (houseToCleanList == null) {
-			if (other.houseToCleanList != null)
-				return false;
-		} else if (!houseToCleanList.equals(other.houseToCleanList))
-			return false;
-		if (score == null) {
-			if (other.score != null)
-				return false;
-		} else if (!score.equals(other.score))
-			return false;
-		return true;
 	}
 
 }
