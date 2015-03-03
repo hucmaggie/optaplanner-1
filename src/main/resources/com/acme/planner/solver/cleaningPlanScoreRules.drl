@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-package org.optaplanner.examples.cloudbalancing.solver;
+package com.acme.planning.housecleaning;
     dialect "java"
 
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
 
-import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
-import org.optaplanner.examples.cloudbalancing.domain.CloudComputer;
-import org.optaplanner.examples.cloudbalancing.domain.CloudProcess;
+import com.acme.planning.model.House;
 
 global HardSoftScoreHolder scoreHolder;
 
@@ -29,63 +27,23 @@ global HardSoftScoreHolder scoreHolder;
 // Hard constraints
 // ############################################################################
 
-rule "requiredCpuPowerTotal"
-    when
-        $computer : CloudComputer($cpuPower : cpuPower)
-        $requiredCpuPowerTotal : Number(intValue > $cpuPower) from accumulate(
-            CloudProcess(
-                computer == $computer,
-                $requiredCpuPower : requiredCpuPower),
-            sum($requiredCpuPower)
-        )
-    then
-        scoreHolder.addHardConstraintMatch(kcontext, $cpuPower - $requiredCpuPowerTotal.intValue());
+
+
+rule "Conflict: 1 cleaner has to clean 2 houses on the same day of week"
+when
+   House($c : cleaner, $d : office.dayOfweek, $leftId : id)
+   House(cleaner == $c, dayOfWeek == $d, id > $leftId)
+then
+   scoreholder.addHardConstraintMatch(kcontext, -1);
 end
 
-rule "requiredMemoryTotal"
-    when
-        $computer : CloudComputer($memory : memory)
-        $requiredMemoryTotal : Number(intValue > $memory) from accumulate(
-            CloudProcess(
-                computer == $computer,
-                $requiredMemory : requiredMemory),
-            sum($requiredMemory)
-        )
-    then
-        scoreHolder.addHardConstraintMatch(kcontext, $memory - $requiredMemoryTotal.intValue());
-end
-
-rule "requiredNetworkBandwidthTotal"
-    when
-        $computer : CloudComputer($networkBandwidth : networkBandwidth)
-        $requiredNetworkBandwidthTotal : Number(intValue > $networkBandwidth) from accumulate(
-            CloudProcess(
-                computer == $computer,
-                $requiredNetworkBandwidth : requiredNetworkBandwidth),
-            sum($requiredNetworkBandwidth)
-        )
-    then
-        scoreHolder.addHardConstraintMatch(kcontext, $networkBandwidth - $requiredNetworkBandwidthTotal.intValue());
-end
-
-rule "atMost4ProcessesPerComputer"
-  when
-    $computer : CloudComputer()
-    $count : Number(intValue > 4) from accumulate(
-    $c : CloudProcess(computer == $computer),
-      count($c)
-    )
-  then
-    scoreHolder.addHardConstraintMatch(kcontext, 4 - $count.intValue());
-end
 // ############################################################################
 // Soft constraints
 // ############################################################################
 
-rule "computerCost"
-    when
-        $computer : CloudComputer($cost : cost)
-        exists CloudProcess(computer == $computer)
-    then
-        scoreHolder.addSoftConstraintMatch(kcontext, - $cost);
+rule "Minimize traveling distance"
+when
+   House($d : house.location.getDistance(cleaner.home)))
+then
+   scoreholder.addSoftConstraintMatch(kcontext, - $d);
 end

@@ -12,30 +12,29 @@ import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-
-
-
 @PlanningSolution
-@XStreamAlias("CleaningPlan")
-public class CleaningPlan extends AbstractPersistable implements Solution<HardSoftScore> {
-/**
+@XStreamAlias("CleaningSolution")
+public class CleaningSolution extends AbstractPersistable implements
+		Solution<HardSoftScore> {
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-/**
+	/**
 	 * 
 	 */
 
 	private List<Cleaner> cleanerList;
 	private List<House> houseToCleanList;
-	
-    //@XStreamConverter(value = XStreamScoreConverter.class, types = {HardSoftScoreDefinition.class})
-    private HardSoftScore score;
+
+	// @XStreamConverter(value = XStreamScoreConverter.class, types =
+	// {HardSoftScoreDefinition.class})
+	private HardSoftScore score;
 
 	public Collection<? extends Object> getProblemFacts() {
-        List<Object> facts = new ArrayList<Object>();
-        facts.addAll(houseToCleanList);
-        return facts;
+		List<Object> facts = new ArrayList<Object>();
+		facts.addAll(houseToCleanList);
+		return facts;
 	}
 
 	public HardSoftScore getScore() {
@@ -45,7 +44,7 @@ public class CleaningPlan extends AbstractPersistable implements Solution<HardSo
 
 	public void setScore(HardSoftScore arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@PlanningEntityCollectionProperty
@@ -87,7 +86,7 @@ public class CleaningPlan extends AbstractPersistable implements Solution<HardSo
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CleaningPlan other = (CleaningPlan) obj;
+		CleaningSolution other = (CleaningSolution) obj;
 		if (cleanerList == null) {
 			if (other.cleanerList != null)
 				return false;
@@ -105,6 +104,5 @@ public class CleaningPlan extends AbstractPersistable implements Solution<HardSo
 			return false;
 		return true;
 	}
-
 
 }

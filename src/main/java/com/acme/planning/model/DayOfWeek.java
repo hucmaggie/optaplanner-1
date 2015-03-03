@@ -1,7 +1,6 @@
 package com.acme.planning.model;
 
-
-public class Supervisor extends AbstractPersistable {
+public class DayOfWeek extends AbstractPersistable {
 
 	/**
 	 * 
