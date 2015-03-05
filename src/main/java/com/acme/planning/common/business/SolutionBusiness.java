@@ -30,6 +30,7 @@ import org.optaplanner.core.api.score.constraint.ConstraintMatchTotal;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.event.BestSolutionChangedEvent;
 import org.optaplanner.core.api.solver.event.SolverEventListener;
+import org.optaplanner.core.impl.domain.variable.descriptor.GenuineVariableDescriptor;
 import org.optaplanner.core.impl.heuristic.move.Move;
 import org.optaplanner.core.impl.heuristic.selector.move.generic.ChangeMove;
 import org.optaplanner.core.impl.score.director.ScoreDirector;
@@ -40,8 +41,7 @@ import org.slf4j.LoggerFactory;
 
 import com.acme.planning.common.persistence.AbstractSolutionExporter;
 import com.acme.planning.common.persistence.AbstractSolutionImporter;
-import com.acme.planning.common.swingui.SolverAndPersistenceFrame;
-import com.acme.planning.util.SolutionDao;
+import com.acme.planning.common.persistence.SolutionDao;
 
 public class SolutionBusiness {
 
@@ -180,7 +180,7 @@ public class SolutionBusiness {
         return solver.isSolving();
     }
 
-    public void registerForBestSolutionChanges(final SolverAndPersistenceFrame solverAndPersistenceFrame) {
+    public void registerForBestSolutionChanges() {
         solver.addEventListener(new SolverEventListener() {
             // Not called on the event thread
             public void bestSolutionChanged(BestSolutionChangedEvent event) {
@@ -195,7 +195,7 @@ public class SolutionBusiness {
                         public void run() {
                             // TODO by the time we process this event, a newer bestSolution might already be queued
                             guiScoreDirector.setWorkingSolution(latestBestSolution);
-                            solverAndPersistenceFrame.bestSolutionChanged();
+                            //solverAndPersistenceFrame.bestSolutionChanged();
                         }
                     });
                 }
@@ -265,8 +265,8 @@ public class SolutionBusiness {
      * @return never null
      */
     public Solution solve(Solution planningProblem) {
-        solver.setPlanningProblem(planningProblem);
-        solver.solve();
+        //solver.setPlanningProblem(planningProblem);
+        solver.solve(planningProblem);
         return solver.getBestSolution();
     }
 
@@ -275,8 +275,8 @@ public class SolutionBusiness {
     }
 
     public ChangeMove createChangeMove(Object entity, String variableName, Object toPlanningValue) {
-        PlanningVariableDescriptor variableDescriptor = guiScoreDirector.getSolutionDescriptor()
-                .findVariableDescriptor(entity, variableName);
+        //PlanningVariableDescriptor variableDescriptor = guiScoreDirector.getSolutionDescriptor().findVariableDescriptor(entity, variableName);
+    	GenuineVariableDescriptor variableDescriptor = guiScoreDirector.getSolutionDescriptor().findGenuineVariableDescriptor(entity, variableName);
         return new ChangeMove(entity, variableDescriptor, toPlanningValue);
     }
 

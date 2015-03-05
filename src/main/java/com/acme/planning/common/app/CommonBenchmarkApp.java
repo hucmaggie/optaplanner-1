@@ -18,18 +18,17 @@ package com.acme.planning.common.app;
 
 import org.optaplanner.benchmark.api.PlannerBenchmark;
 import org.optaplanner.benchmark.api.PlannerBenchmarkFactory;
-import org.optaplanner.benchmark.impl.FreemarkerXmlPlannerBenchmarkFactory;
 
 public abstract class CommonBenchmarkApp extends LoggingMain {
 
     public void buildAndBenchmark(String benchmarkConfig) {
-        PlannerBenchmarkFactory plannerBenchmarkFactory = new XmlPlannerBenchmarkFactory(benchmarkConfig);
+        PlannerBenchmarkFactory plannerBenchmarkFactory = PlannerBenchmarkFactory.createFromXmlResource(benchmarkConfig);
         PlannerBenchmark plannerBenchmark = plannerBenchmarkFactory.buildPlannerBenchmark();
         plannerBenchmark.benchmark();
     }
 
     public void buildFromTemplateAndBenchmark(String benchmarkConfigTemplate) {
-        PlannerBenchmarkFactory plannerBenchmarkFactory = new FreemarkerXmlPlannerBenchmarkFactory(
+        PlannerBenchmarkFactory plannerBenchmarkFactory = PlannerBenchmarkFactory.createFromFreemarkerXmlResource(
                 benchmarkConfigTemplate);
         PlannerBenchmark plannerBenchmark = plannerBenchmarkFactory.buildPlannerBenchmark();
         plannerBenchmark.benchmark();
