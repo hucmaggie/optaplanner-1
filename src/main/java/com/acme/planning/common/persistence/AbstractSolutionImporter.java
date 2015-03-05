@@ -21,6 +21,7 @@ import java.util.Arrays;
 
 import org.optaplanner.core.api.domain.solution.Solution;
 
+import com.acme.planning.common.app.LoggingMain;
 import com.acme.planning.common.business.ProblemFileComparator;
 
 public abstract class AbstractSolutionImporter extends LoggingMain {
