@@ -1,0 +1,75 @@
+<CleaningSolution id="1">
+	<id>0</id>
+	<houseToCleanList id="2">
+		<House id="3">
+			<id>0</id>
+			<requiredCleaners>3</requiredCleaners>
+		</House>
+		<House id="4">
+			<id>1</id>
+			<requiredCleaners>2</requiredCleaners>
+		</House>
+		<House id="5">
+			<id>2</id>
+			<requiredCleaners>3</requiredCleaners>
+		</House>
+		<House id="6">
+			<id>3</id>
+			<requiredCleaners>1</requiredCleaners>
+		</House>
+		<House id="7">
+			<id>4</id>
+			<requiredCleaners>2</requiredCleaners>
+		</House>
+		<House id="8">
+			<id>5</id>
+			<requiredCleaners>3</requiredCleaners>
+		</House>
+		<House id="9">
+			<id>6</id>
+			<requiredCleaners>2</requiredCleaners>
+		</House>
+		<House id="10">
+			<id>7</id>
+			<requiredCleaners>1</requiredCleaners>
+		</House>
+		<House id="11">
+			<id>8</id>
+			<requiredCleaners>2</requiredCleaners>
+		</House>
+		<House id="12">
+			<id>9</id>
+			<requiredCleaners>3</requiredCleaners>
+		</House>
+		<House id="13">
+			<id>10</id>
+			<requiredCleaners>2</requiredCleaners>
+		</House>
+	</houseToCleanList>
+	<cleanerList id="14">
+		<Cleaner id="15">
+			<id>0</id>
+			<name>A</name>
+		</Cleaner>
+		<Cleaner id="16">
+			<id>1</id>
+			<name>B</name>
+		</Cleaner>
+		<Cleaner id="17">
+			<id>2</id>
+			<name>C</name>
+		</Cleaner>
+		<Cleaner id="18">
+			<id>3</id>
+			<name>D</name>
+		</Cleaner>
+		<Cleaner id="19">
+			<id>4</id>
+			<name>E</name>
+		</Cleaner>
+		<Cleaner id="20">
+			<id>5</id>
+			<name>F</name>
+		</Cleaner>
+	</cleanerList>
+</CleaningSolution>

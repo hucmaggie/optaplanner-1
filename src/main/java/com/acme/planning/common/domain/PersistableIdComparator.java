@@ -14,27 +14,17 @@
  * limitations under the License.
  */
 
-package com.acme.planning.app;
+package com.acme.planning.common.domain;
 
-import org.optaplanner.core.api.solver.Solver;
-import org.optaplanner.core.api.solver.SolverFactory;
+import java.io.Serializable;
+import java.util.Comparator;
 
-public class CleaningPlanApp {
+import org.apache.commons.lang.builder.CompareToBuilder;
 
-    public static final String SOLVER_CONFIG
-            = "/com/acme/planning/cleaningPlanSolverConfig.xml";
+public class PersistableIdComparator implements Comparator<AbstractPersistable>, Serializable {
 
-    public static void main(String[] args) {
-   
-
-    }
-
-    public CleaningPlanApp() {
-    }
-
-    protected Solver createSolver() {
-    	SolverFactory solverFactory = SolverFactory.createFromXmlResource(SOLVER_CONFIG);
-        return solverFactory.buildSolver();
+    public int compare(AbstractPersistable a, AbstractPersistable b) {
+        return new CompareToBuilder().append(a.getId(), b.getId()).toComparison();
     }
 
 }
