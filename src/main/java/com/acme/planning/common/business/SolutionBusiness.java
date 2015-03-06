@@ -276,8 +276,8 @@ public class SolutionBusiness {
 
     public ChangeMove createChangeMove(Object entity, String variableName, Object toPlanningValue) {
         //PlanningVariableDescriptor variableDescriptor = guiScoreDirector.getSolutionDescriptor().findVariableDescriptor(entity, variableName);
-    	GenuineVariableDescriptor variableDescriptor = guiScoreDirector.getSolutionDescriptor().findGenuineVariableDescriptor(entity, variableName);
-        return new ChangeMove(entity, variableDescriptor, toPlanningValue);
+    	//GenuineVariableDescriptor variableDescriptor = guiScoreDirector.getSolutionDescriptor().findGenuineVariableDescriptor(entity, variableName);
+        return null;//new ChangeMove(entity, variableDescriptor, toPlanningValue);
     }
 
     public void doChangeMove(Object entity, String variableName, Object toPlanningValue) {

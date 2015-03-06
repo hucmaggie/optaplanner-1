@@ -11,14 +11,14 @@ import com.acme.planning.util.CleaningSolutionDao;
 
 public class CleaningSolutionApp extends CommonApp {
 
-	public static final String SOLVER_CONFIG = "/com/acme/planner/cleaningPlanSolverConfig.xml";
+	public static final String SOLVER_CONFIG = "com/acme/planner/solver/cleaningPlanSolverConfig.xml";
 
 	public static void main(String[] args) {
 		new CleaningSolutionApp().init();
 	}
 
 	public CleaningSolutionApp() {
-		super("", "", "");
+		super("a", "a", "a");
 	}
 
 	@Override
