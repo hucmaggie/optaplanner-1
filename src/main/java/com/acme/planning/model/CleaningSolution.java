@@ -47,6 +47,7 @@ public class CleaningSolution extends AbstractPersistable implements
 	}
 
 	@PlanningEntityCollectionProperty
+	@ValueRangeProvider(id = "cleanerRange")
 	public List<Cleaner> getCleanerList() {
 		return cleanerList;
 	}
@@ -54,7 +55,7 @@ public class CleaningSolution extends AbstractPersistable implements
 	public void setCleanerList(List<Cleaner> cleanerList) {
 		this.cleanerList = cleanerList;
 	}
-
+	@PlanningEntityCollectionProperty
 	@ValueRangeProvider(id = "houseRange")
 	public List<House> getHouseToCleanList() {
 		return houseToCleanList;

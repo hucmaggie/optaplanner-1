@@ -30,7 +30,6 @@ import org.optaplanner.core.api.score.constraint.ConstraintMatchTotal;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.event.BestSolutionChangedEvent;
 import org.optaplanner.core.api.solver.event.SolverEventListener;
-import org.optaplanner.core.impl.domain.variable.descriptor.GenuineVariableDescriptor;
 import org.optaplanner.core.impl.heuristic.move.Move;
 import org.optaplanner.core.impl.heuristic.selector.move.generic.ChangeMove;
 import org.optaplanner.core.impl.score.director.ScoreDirector;
@@ -42,6 +41,7 @@ import org.slf4j.LoggerFactory;
 import com.acme.planning.common.persistence.AbstractSolutionExporter;
 import com.acme.planning.common.persistence.AbstractSolutionImporter;
 import com.acme.planning.common.persistence.SolutionDao;
+import com.acme.planning.util.CleaningSolutionDao;
 
 public class SolutionBusiness {
 
@@ -89,6 +89,7 @@ public class SolutionBusiness {
     }
 
     public void updateDataDirs() {
+    	SolutionDao solutionDao = new CleaningSolutionDao();
         File dataDir = solutionDao.getDataDir();
         if (hasImporter()) {
             importDataDir = new File(dataDir, "import");

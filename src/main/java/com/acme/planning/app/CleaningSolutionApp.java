@@ -4,8 +4,6 @@ import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
 
 import com.acme.planning.common.app.CommonApp;
-import com.acme.planning.common.persistence.SolutionDao;
-import com.acme.planning.util.CleaningSolutionDao;
 
 
 
@@ -28,13 +26,4 @@ public class CleaningSolutionApp extends CommonApp {
         Solver solver = solverFactory.buildSolver();
 		return solver;
 	}
-
-
-	@Override
-	protected SolutionDao createSolutionDao() {
-		return new CleaningSolutionDao();
-	}
-
-
-
 }

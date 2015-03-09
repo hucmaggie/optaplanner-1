@@ -12,19 +12,18 @@ global HardSoftScoreHolder scoreHolder;
 // ############################################################################
 rule "Conflict: 1 cleaner has to clean 2 houses on the same day of week"
 when
-   House($c : cleaner, $d : office.dayOfweek, $leftId : id)
+   House($c : cleaner, $d : dayOfWeek, $leftId : id)
    House(cleaner == $c, dayOfWeek == $d, id > $leftId)
 then
-   scoreholder.addHardConstraintMatch(kcontext, -1);
+   scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
 
 // ############################################################################
 // Soft constraints
 // ############################################################################
-
 rule "Minimize traveling distance"
 when
-   House($d : house.location.getDistance(cleaner.home)))
+   House($d : houseLocation.getDistance())
 then
-   scoreholder.addSoftConstraintMatch(kcontext, - $d);
+   scoreHolder.addSoftConstraintMatch(kcontext, - $d);
 end

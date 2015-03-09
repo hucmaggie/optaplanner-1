@@ -22,9 +22,10 @@ public class Cleaner extends AbstractPersistable {
 	//planning variable
 	private House house;
 	private Location cleanerLocation;
+	private String home;
 	
 	
-    @PlanningVariable(valueRangeProviderRefs = {"houseRange"}, strengthComparatorClass = HouseStrengthComparator.class)
+    @PlanningVariable(valueRangeProviderRefs = {"houseRange", "cleanerRange"}, strengthComparatorClass = HouseStrengthComparator.class)
 	public House getHouse() {
 		return house;
 	}
@@ -41,5 +42,17 @@ public class Cleaner extends AbstractPersistable {
     public String toString() {
         return getLabel() + "->" + house;
     }
+	public Location getCleanerLocation() {
+		return cleanerLocation;
+	}
+	public void setCleanerLocation(Location cleanerLocation) {
+		this.cleanerLocation = cleanerLocation;
+	}
+	public String getHome() {
+		return home;
+	}
+	public void setHome(String home) {
+		this.home = home;
+	}
 
 }

@@ -73,25 +73,9 @@ public abstract class CommonApp extends LoggingMain {
 
     public SolutionBusiness createSolutionBusiness() {
         SolutionBusiness solutionBusiness = new SolutionBusiness();
-        solutionBusiness.setSolutionDao(createSolutionDao());
-        solutionBusiness.setImporter(createSolutionImporter());
-        solutionBusiness.setExporter(createSolutionExporter());
         solutionBusiness.updateDataDirs();
         solutionBusiness.setSolver(createSolver());
         return solutionBusiness;
     }
-
     protected abstract Solver createSolver();
-
-
-    protected abstract SolutionDao createSolutionDao();
-
-    protected AbstractSolutionImporter createSolutionImporter() {
-        return null;
-    }
-
-    protected AbstractSolutionExporter createSolutionExporter() {
-        return null;
-    }
-
 }

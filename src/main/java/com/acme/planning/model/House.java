@@ -14,6 +14,16 @@ public class House extends AbstractPersistable {
 	private String houseType;
 	private int requiredCleaners;
 	private Location houseLocation;
+	private DayOfWeek dayOfWeek;
+	private Cleaner cleaner;
+
+	public Cleaner getCleaner() {
+		return cleaner;
+	}
+
+	public void setCleaner(Cleaner cleaner) {
+		this.cleaner = cleaner;
+	}
 
 	public String getHouseName() {
 		return houseName;
@@ -61,6 +71,14 @@ public class House extends AbstractPersistable {
 
 	public void setHouseLocation(Location houseLocation) {
 		this.houseLocation = houseLocation;
+	}
+
+	public DayOfWeek getDayOfWeek() {
+		return dayOfWeek;
+	}
+
+	public void setDayOfWeek(DayOfWeek dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
 	}
 
 }
