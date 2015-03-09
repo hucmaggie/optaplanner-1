@@ -10,7 +10,6 @@ public class House extends AbstractPersistable {
 	private static final long serialVersionUID = 8792399274437960066L;
 	private String houseName;
 	private Integer houseId;
-	private Address address;
 	private String houseType;
 	private int requiredCleaners;
 	private Location houseLocation;
@@ -41,13 +40,7 @@ public class House extends AbstractPersistable {
 		this.houseId = houseId;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public String getHouseType() {
 		return houseType;
