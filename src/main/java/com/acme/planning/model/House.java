@@ -10,7 +10,7 @@ public class House {
 	private Location houseLocation;
 
 	
-	@PlanningVariable
+	@PlanningVariable(valueRangeProviderRefs = {"dayOfWeekRange"})
 	public DayOfWeek getDayOfWeek() {
 		return dayOfWeek;
 	}

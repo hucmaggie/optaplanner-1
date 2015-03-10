@@ -3,7 +3,7 @@ package com.acme.planning.housecleaning;
 
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScoreHolder;
 
-import com.acme.planning.model.House;
+import com.acme.planning.model.HouseCleaningSpot;
 
 global HardSoftScoreHolder scoreHolder;
 
@@ -12,8 +12,8 @@ global HardSoftScoreHolder scoreHolder;
 // ############################################################################
 rule "Conflict: 1 cleaner has to clean 2 houses on the same day of week"
 when
-   House($c : cleaner, $d : dayOfWeek, $leftId : id)
-   House(cleaner == $c, dayOfWeek == $d, id > $leftId)
+   HouseCleaningSpot($c : cleaner, $d : house.dayOfWeek, $leftId : id)
+   HouseCleaningSpot(cleaner == $c, house.dayOfWeek == $d, id > $leftId)
 then
    scoreHolder.addHardConstraintMatch(kcontext, -1);
 end

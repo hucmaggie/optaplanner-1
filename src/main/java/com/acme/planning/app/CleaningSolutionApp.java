@@ -5,26 +5,20 @@ import org.optaplanner.core.api.solver.SolverFactory;
 import org.optaplanner.core.api.solver.event.BestSolutionChangedEvent;
 import org.optaplanner.core.api.solver.event.SolverEventListener;
 
-import com.acme.planning.common.app.CommonApp;
 import com.acme.planning.model.CleaningSolution;
 
 
 
-public class CleaningSolutionApp extends CommonApp {
+public class CleaningSolutionApp {
 
 	public static final String SOLVER_CONFIG = "com/acme/planner/solver/cleaningPlanSolverConfig.xml";
 
 	public static void main(String[] args) {
-		new CleaningSolutionApp().init();
+		//new CleaningSolutionApp().init();
+		new CleaningSolutionApp().createSolver();
 	}
 
-	public CleaningSolutionApp() {
-		super("a", "a", "a");
-	}
-
-	@Override
-	protected Solver createSolver() {
-		
+	protected Solver createSolver() {	
         SolverFactory solverFactory = SolverFactory.createFromXmlResource(SOLVER_CONFIG);
         Solver solver = solverFactory.buildSolver();
         solver.addEventListener(new SolverEventListener() {

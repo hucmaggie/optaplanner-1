@@ -22,6 +22,7 @@ public class CleaningSolution implements Serializable, Solution<HardSoftScore> {
 
 	private List<Cleaner> cleanerList;
 	private List<HouseCleaningSpot> houseCleaningSpotList;
+	private List<DayOfWeek> dayOfWeekList;
 
 	public HardSoftScore getScore() {
 		return score;
@@ -54,6 +55,15 @@ public class CleaningSolution implements Serializable, Solution<HardSoftScore> {
 	public void setHouseCleaningSpotList(
 			List<HouseCleaningSpot> houseCleaningSpotList) {
 		this.houseCleaningSpotList = houseCleaningSpotList;
+	}
+
+	@ValueRangeProvider(id = "dayOfWeekRange")
+	public List<DayOfWeek> getDayOfWeekList() {
+		return dayOfWeekList;
+	}
+
+	public void setDayOfWeekList(List<DayOfWeek> dayOfWeekList) {
+		this.dayOfWeekList = dayOfWeekList;
 	}
 
 }

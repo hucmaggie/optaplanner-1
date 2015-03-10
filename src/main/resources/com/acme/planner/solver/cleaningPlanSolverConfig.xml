@@ -18,7 +18,8 @@
 <solver>
     <!-- What can Planner change? We need to make Planner aware of our domain classes -->
   <solutionClass>com.acme.planning.model.CleaningSolution</solutionClass>
-  <entityClass>com.acme.planning.model.Cleaner</entityClass>
+  <entityClass>com.acme.planning.model.House</entityClass>
+  <entityClass>com.acme.planning.model.HouseCleaningSpot</entityClass>
 
     <scoreDirectorFactory>
         <!-- How should Planner optimize the planning variables? Since we have hard and soft constraints, we use a HardSoftScore -->

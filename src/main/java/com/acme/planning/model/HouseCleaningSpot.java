@@ -7,10 +7,21 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 @PlanningEntity
 public class HouseCleaningSpot {
 
+	private Long id;
 	private House house;
 	private int cleaningSpotIndex;
 
 	private Cleaner cleaner;
+
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public House getHouse() {
 		return house;
@@ -28,7 +39,7 @@ public class HouseCleaningSpot {
 		this.cleaningSpotIndex = cleaningSpotIndex;
 	}
 
-	@PlanningVariable
+	@PlanningVariable(valueRangeProviderRefs = {"cleanerRange"})
 	public Cleaner getCleaner() {
 		return cleaner;
 	}
