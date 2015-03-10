@@ -21,9 +21,9 @@ end
 // ############################################################################
 // Soft constraints
 // ############################################################################
-rule "Minimize traveling distance"
-when
-   House($d : houseLocation.getDistance())
-then
-   scoreHolder.addSoftConstraintMatch(kcontext, - $d);
-end
+//rule "Minimize traveling distance"
+//when
+  // House($d : houseLocation.getDistance())
+//then
+  // scoreHolder.addSoftConstraintMatch(kcontext, - $d);
+//end

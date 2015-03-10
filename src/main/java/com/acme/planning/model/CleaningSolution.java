@@ -1,5 +1,6 @@
 package com.acme.planning.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -10,43 +11,32 @@ import org.optaplanner.core.api.domain.solution.Solution;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 @PlanningSolution
-@XStreamAlias("CleaningSolution")
-public class CleaningSolution extends AbstractPersistable implements
-		Solution<HardSoftScore> {
+public class CleaningSolution implements Serializable, Solution<HardSoftScore> {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 
-	 */
-
-	private List<Cleaner> cleanerList;
-	private List<House> houseToCleanList;
-
-
 	private HardSoftScore score;
 
-	public Collection<? extends Object> getProblemFacts() {
-		List<Object> facts = new ArrayList<Object>();
-		facts.addAll(houseToCleanList);
-		return facts;
-	}
+	private List<Cleaner> cleanerList;
+	private List<HouseCleaningSpot> houseCleaningSpotList;
 
 	public HardSoftScore getScore() {
-		// TODO Auto-generated method stub
-		return null;
+		return score;
 	}
 
-	public void setScore(HardSoftScore arg0) {
-		// TODO Auto-generated method stub
-
+	public void setScore(HardSoftScore score) {
+		this.score = score;
 	}
 
-	@PlanningEntityCollectionProperty
+	public Collection<? extends Object> getProblemFacts() {
+        List<Object> facts = new ArrayList<Object>();
+        facts.addAll(cleanerList);
+        return facts;
+	}
+
 	@ValueRangeProvider(id = "cleanerRange")
 	public List<Cleaner> getCleanerList() {
 		return cleanerList;
@@ -55,14 +45,15 @@ public class CleaningSolution extends AbstractPersistable implements
 	public void setCleanerList(List<Cleaner> cleanerList) {
 		this.cleanerList = cleanerList;
 	}
+
 	@PlanningEntityCollectionProperty
-	@ValueRangeProvider(id = "houseRange")
-	public List<House> getHouseToCleanList() {
-		return houseToCleanList;
+	public List<HouseCleaningSpot> getHouseCleaningSpotList() {
+		return houseCleaningSpotList;
 	}
 
-	public void setHouseToCleanList(List<House> houseToCleanList) {
-		this.houseToCleanList = houseToCleanList;
+	public void setHouseCleaningSpotList(
+			List<HouseCleaningSpot> houseCleaningSpotList) {
+		this.houseCleaningSpotList = houseCleaningSpotList;
 	}
 
 }

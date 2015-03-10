@@ -1,13 +1,36 @@
 package com.acme.planning.util;
 
-import com.acme.planning.common.persistence.XStreamSolutionDao;
-import com.acme.planning.model.CleaningSolution;
+import java.io.File;
 
+import org.optaplanner.core.api.domain.solution.Solution;
 
-public class CleaningSolutionDao extends XStreamSolutionDao {
+import com.acme.planning.common.persistence.SolutionDao;
 
-    public CleaningSolutionDao() {
-        super("planning", CleaningSolution.class);
-    }
+public class CleaningSolutionDao implements SolutionDao {
+
+	public String getDirName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public File getDataDir() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getFileExtension() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Solution readSolution(File inputSolutionFile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void writeSolution(Solution solution, File outputSolutionFile) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

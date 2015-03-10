@@ -1,10 +1,6 @@
 package com.acme.planning.model;
 
-public class DayOfWeek extends AbstractPersistable {
+public class DayOfWeek {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 }
