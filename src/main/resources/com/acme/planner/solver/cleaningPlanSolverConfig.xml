@@ -7,7 +7,7 @@
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+    You may obtain a copy of the License at	
     http://www.apache.org/licenses/LICENSE-2.0
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,7 +18,7 @@
 <solver>
     <!-- What can Planner change? We need to make Planner aware of our domain classes -->
   <solutionClass>com.acme.planning.model.CleaningSolution</solutionClass>
-  <entityClass>com.acme.planning.model.House</entityClass>
+  <!-- entityClass>com.acme.planning.model.House</entityClass-->
   <entityClass>com.acme.planning.model.HouseCleaningSpot</entityClass>
 
     <scoreDirectorFactory>
@@ -28,29 +28,18 @@
         <scoreDrl>com/acme/planner/solver/cleaningPlanScoreRules.drl</scoreDrl>
     </scoreDirectorFactory>
 
-    <!-- Configure the optimization algorithm(s) -->
-    <termination>
-        <minutesSpentLimit>5</minutesSpentLimit>
-    </termination>
-    <constructionHeuristic>
-        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
-    </constructionHeuristic>
-    <localSearch>
-        <unionMoveSelector>
-            <changeMoveSelector />
-            <swapMoveSelector />
-            <subChainChangeMoveSelector>
-                <selectReversingMoveToo>true</selectReversingMoveToo>
-            </subChainChangeMoveSelector>
-            <subChainSwapMoveSelector>
-                <selectReversingMoveToo>true</selectReversingMoveToo>
-            </subChainSwapMoveSelector>
-        </unionMoveSelector>
-        <acceptor>
-            <lateAcceptanceSize>200</lateAcceptanceSize>
-        </acceptor>
-        <forager>
-            <acceptedCountLimit>1</acceptedCountLimit>
-        </forager>
-    </localSearch>
+  <termination>
+    <minutesSpentLimit>5</minutesSpentLimit>
+  </termination>
+  <constructionHeuristic>
+    <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+  </constructionHeuristic>
+  <localSearch>
+    <acceptor>
+      <entityTabuSize>7</entityTabuSize>
+    </acceptor>
+    <forager>
+      <acceptedCountLimit>1000</acceptedCountLimit>
+    </forager>
+  </localSearch>
 </solver>

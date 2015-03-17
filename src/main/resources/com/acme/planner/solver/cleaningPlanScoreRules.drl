@@ -12,8 +12,8 @@ global HardSoftScoreHolder scoreHolder;
 // ############################################################################
 rule "Conflict: 1 cleaner has to clean 2 houses on the same day of week"
 when
-   HouseCleaningSpot($c : cleaner, $d : house.dayOfWeek, $leftId : id)
-   HouseCleaningSpot(cleaner == $c, house.dayOfWeek == $d, id > $leftId)
+   HouseCleaningSpot($c : cleaner, $d : house.dayOfWeek.dayId, $leftId : id)
+   HouseCleaningSpot(cleaner == $c, house.dayOfWeek.dayId == $d, id > $leftId)
 then
    scoreHolder.addHardConstraintMatch(kcontext, -1);
 end
