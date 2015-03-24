@@ -68,7 +68,7 @@ public class CleaningSolutionApp {
 
 	public static List<Cleaner> createCleaners() {
 		// Random random = new Random(System.currentTimeMillis());
-		
+		//hsjdhsdjshdsjhdsj
 		List<Cleaner> cleanersList = new ArrayList<Cleaner>();
 		
 		DayOfWeek monday = new DayOfWeek("Monday");
