@@ -21,7 +21,7 @@ public class CleaningSolutionApp {
 	public static void main(String[] args) {
 
 		Solver solver = new CleaningSolutionApp().createSolver();
-//okkkokoko
+
 		CleaningSolution unsolvedCleaningSolution = createCleaningSolution();
 		solver.solve(unsolvedCleaningSolution);
 		CleaningSolution solvedCloudBalance = (CleaningSolution) solver.getBestSolution();
