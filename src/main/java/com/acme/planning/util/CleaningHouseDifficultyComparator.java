@@ -9,9 +9,7 @@ import com.acme.planning.model.HouseCleaningSpot;
 
 public class CleaningHouseDifficultyComparator implements Comparator<HouseCleaningSpot>, Serializable {
 
-    /**dsdsds
-	 * dsddsdsds
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public int compare(HouseCleaningSpot a, HouseCleaningSpot b) {
