@@ -25,7 +25,7 @@ public class CleaningSolutionApp {
 		CleaningSolution unsolvedCleaningSolution = createCleaningSolution();
 		solver.solve(unsolvedCleaningSolution);
 		CleaningSolution solvedCloudBalance = (CleaningSolution) solver.getBestSolution();
-		System.out.println("\nSolved cloudBalance with 400 computers and 1200 processes:\n"+toDisplayString(solvedCloudBalance));
+		System.out.println("\nSolved CleaningProblem with 3 houses with 7 cleaning spots and 7 cleaners for a week:\n"+toDisplayString(solvedCloudBalance));
 
 	}
     public static String toDisplayString(CleaningSolution cleaningSolution) {
