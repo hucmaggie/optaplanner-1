@@ -36,7 +36,8 @@
   </constructionHeuristic>
   <localSearch>
     <acceptor>
-      <entityTabuSize>7</entityTabuSize>
+      <lateAcceptanceSize>400</lateAcceptanceSize>
+      <entityTabuSize>3</entityTabuSize>
     </acceptor>
     <forager>
       <acceptedCountLimit>1000</acceptedCountLimit>

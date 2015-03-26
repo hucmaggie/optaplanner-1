@@ -2,6 +2,7 @@ package com.acme.planning.model;
 
 public class House {
 
+	private Long houseId;
 	private String id;
 	private DayOfWeek dayOfWeek;
 	private Location houseLocation;
@@ -13,10 +14,25 @@ public class House {
 		this.houseLocation = houseLocation;
 	}
 
+	public House(Long houseId, String id, DayOfWeek dayOfWeek) {
+		super();
+		this.houseId = houseId;
+		this.id = id;
+		this.dayOfWeek = dayOfWeek;
+	}
+
 	public House(String id, DayOfWeek dayOfWeek) {
 		super();
 		this.id = id;
 		this.dayOfWeek = dayOfWeek;
+	}
+
+	public Long getHouseId() {
+		return houseId;
+	}
+
+	public void setHouseId(Long houseId) {
+		this.houseId = houseId;
 	}
 
 	public String getId() {

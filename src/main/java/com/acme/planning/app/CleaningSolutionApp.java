@@ -25,16 +25,16 @@ public class CleaningSolutionApp {
 		CleaningSolution unsolvedCleaningSolution = createCleaningSolution();
 		solver.solve(unsolvedCleaningSolution);
 		CleaningSolution solvedCloudBalance = (CleaningSolution) solver.getBestSolution();
-		System.out.println("\nSolved CleaningProblem with 3 houses with 7 cleaning spots and 7 cleaners for a week:\n"+toDisplayString(solvedCloudBalance));
+		System.out.println("\nSolved CleaningProblem with 5 houses with 15 house cleaning spots and 7 cleaners for a week:\n"+toDisplayString(solvedCloudBalance));
 
 	}
     public static String toDisplayString(CleaningSolution cleaningSolution) {
         StringBuilder displayString = new StringBuilder();
         for (HouseCleaningSpot houseCleaningSpot : cleaningSolution.getHouseCleaningSpotList()) {
             Cleaner cleaner = houseCleaningSpot.getCleaner();
-            displayString.append("  HCSpot:::").append(houseCleaningSpot.getCleaningSpotIndex()).append(" -> ")
+            displayString.append("  House:::").append(houseCleaningSpot.getHouse().getId()).append(" -> ")
+            .append("  HCSpot:::").append(houseCleaningSpot.getCleaningSpotIndex()).append(" -> ")
             .append("  Day:::").append(houseCleaningSpot.getHouse().getDayOfWeek().getDayId()).append(" -> ")
-            .append("  House:::").append(houseCleaningSpot.getHouse().getId()).append(" -> ")
             .append("  Cleaner:::").append(cleaner == null ? null : cleaner.getId()).append("\n");
         }
         return displayString.toString();
@@ -57,7 +57,7 @@ public class CleaningSolutionApp {
 		
 		List<Cleaner> clist = createCleaners();
 		List<HouseCleaningSpot> hsclist = createHouseCleaningSpot();
-		List<House> hslst =  createHouseList();
+		//List<House> hslst =  createHouseList();
 
 		unsolvedCleaningProblem.setCleanerList(clist);
 		unsolvedCleaningProblem.setHouseCleaningSpotList(hsclist);
@@ -78,13 +78,13 @@ public class CleaningSolutionApp {
 
 
 		
-		Cleaner cleaner1 = new Cleaner(1, monday);
-		Cleaner cleaner2 = new Cleaner(2, tuesday);
-		Cleaner cleaner3 = new Cleaner(3, wednesday);
-		Cleaner cleaner4 = new Cleaner(4, thursday);
-		Cleaner cleaner5 = new Cleaner(5, tuesday);
-		Cleaner cleaner6 = new Cleaner(6, monday);
-		Cleaner cleaner7 = new Cleaner(7, monday);
+		Cleaner cleaner1 = new Cleaner(new Long(111), monday);
+		Cleaner cleaner2 = new Cleaner(new Long(112), tuesday);
+		Cleaner cleaner3 = new Cleaner(new Long(113), wednesday);
+		Cleaner cleaner4 = new Cleaner(new Long(114), thursday);
+		Cleaner cleaner5 = new Cleaner(new Long(115), thursday);
+		Cleaner cleaner6 = new Cleaner(new Long(116), thursday);
+		Cleaner cleaner7 = new Cleaner(new Long(117), thursday);
 
 		cleanersList.add(cleaner1);
 		cleanersList.add(cleaner2);
@@ -102,37 +102,65 @@ public class CleaningSolutionApp {
 		// Random random = new Random(System.currentTimeMillis());
 		List<HouseCleaningSpot> houseCleaningSpotList = new ArrayList<HouseCleaningSpot>();
 		
-		DayOfWeek dayOfWeek1 = new DayOfWeek("Monday");
-		House house1 = new House("A", dayOfWeek1);
-		HouseCleaningSpot houseCleaningSpot11 = new HouseCleaningSpot(house1, 1);
-		HouseCleaningSpot houseCleaningSpot12 = new HouseCleaningSpot(house1, 2);
-		HouseCleaningSpot houseCleaningSpot13 = new HouseCleaningSpot(house1, 3);
+		DayOfWeek dayOfWeek1 = new DayOfWeek(new Long(1), "Monday");
+		House house1 = new House(new Long(1111), "A", dayOfWeek1);
+		HouseCleaningSpot houseCleaningSpot11 = new HouseCleaningSpot(new Long(11),house1, 101);
+		HouseCleaningSpot houseCleaningSpot12 = new HouseCleaningSpot(new Long(12),house1, 102);
+		HouseCleaningSpot houseCleaningSpot13 = new HouseCleaningSpot(new Long(13),house1, 103);
 		
 		
-		DayOfWeek dayOfWeek2 = new DayOfWeek("Tuesday");
-		House house2 = new House("B", dayOfWeek2);
-		HouseCleaningSpot houseCleaningSpot21 = new HouseCleaningSpot(house2, 1);
-		HouseCleaningSpot houseCleaningSpot22 = new HouseCleaningSpot(house2, 2);	
+		DayOfWeek dayOfWeek2 = new DayOfWeek(new Long(2), "Tuesday");
+		House house2 = new House(new Long(2222), "B", dayOfWeek1);
+		HouseCleaningSpot houseCleaningSpot21 = new HouseCleaningSpot(new Long(21),house2, 201);
+		HouseCleaningSpot houseCleaningSpot22 = new HouseCleaningSpot(new Long(22),house2, 202);	
 	
 
-		DayOfWeek dayOfWeek3 = new DayOfWeek("Wednesday");
-		House house3 = new House("C", dayOfWeek3);
-		HouseCleaningSpot houseCleaningSpot31 = new HouseCleaningSpot(house3, 1);
-		HouseCleaningSpot houseCleaningSpot32 = new HouseCleaningSpot(house3, 2);
+		DayOfWeek dayOfWeek3 = new DayOfWeek(new Long(3), "Wednesday");
+		House house3 = new House(new Long(3333), "C", dayOfWeek3);
+		HouseCleaningSpot houseCleaningSpot31 = new HouseCleaningSpot(new Long(31),house3, 301);
+		HouseCleaningSpot houseCleaningSpot32 = new HouseCleaningSpot(new Long(32),house3, 302);
+		HouseCleaningSpot houseCleaningSpot33 = new HouseCleaningSpot(new Long(33),house3, 303);
+		HouseCleaningSpot houseCleaningSpot34 = new HouseCleaningSpot(new Long(34),house3, 304);
+		HouseCleaningSpot houseCleaningSpot35 = new HouseCleaningSpot(new Long(35),house3, 305);
+
+		
+		DayOfWeek dayOfWeek4 = new DayOfWeek(new Long(4), "Thursday");
+		House house4 = new House(new Long(4444), "D", dayOfWeek4);
+		HouseCleaningSpot houseCleaningSpot41 = new HouseCleaningSpot(new Long(41),house4, 401);
+		HouseCleaningSpot houseCleaningSpot42 = new HouseCleaningSpot(new Long(42),house4, 402);
+		
+		DayOfWeek dayOfWeek5 = new DayOfWeek(new Long(5), "Friday");
+		House house5 = new House(new Long(5555), "E", dayOfWeek5);
+		HouseCleaningSpot houseCleaningSpot51 = new HouseCleaningSpot(new Long(51),house5, 501);
+		HouseCleaningSpot houseCleaningSpot52 = new HouseCleaningSpot(new Long(52),house5, 502);
+		HouseCleaningSpot houseCleaningSpot53 = new HouseCleaningSpot(new Long(53),house5, 503);
 		
 		houseCleaningSpotList.add(houseCleaningSpot11);
 		houseCleaningSpotList.add(houseCleaningSpot12);
 		houseCleaningSpotList.add(houseCleaningSpot13);
+		
 		houseCleaningSpotList.add(houseCleaningSpot21);
 		houseCleaningSpotList.add(houseCleaningSpot22);
+		
 		houseCleaningSpotList.add(houseCleaningSpot31);
 		houseCleaningSpotList.add(houseCleaningSpot32);
+		houseCleaningSpotList.add(houseCleaningSpot33);
+		houseCleaningSpotList.add(houseCleaningSpot34);
+		houseCleaningSpotList.add(houseCleaningSpot35);
+		
+		houseCleaningSpotList.add(houseCleaningSpot41);
+		houseCleaningSpotList.add(houseCleaningSpot42);
+		
+		houseCleaningSpotList.add(houseCleaningSpot51);
+		houseCleaningSpotList.add(houseCleaningSpot52);
+		houseCleaningSpotList.add(houseCleaningSpot53);
+
 		
 		System.out.println("Size of the houseCleaningSpotList list is ::: "+houseCleaningSpotList.size());
 
 		return houseCleaningSpotList;
 	}
-
+/*
 	public static List<House> createHouseList() {
 
 		List<House> houseList = new ArrayList<House>();
@@ -140,15 +168,17 @@ public class CleaningSolutionApp {
 		House house1 = new House("A", new DayOfWeek("Monday"));
 		House house2 = new House("B", new DayOfWeek("Monday"));
 		House house3 = new House("C", new DayOfWeek("Monday"));
+		House house4 = new House("D", new DayOfWeek("Monday"));
 		
 		houseList.add(house1);
 		houseList.add(house2);
 		houseList.add(house3);
+		houseList.add(house4);
 		
 		System.out.println("Size of the houseList list is ::: "+houseList.size());
 		
 		return houseList;
 		
-	}
+	}*/
 
 }

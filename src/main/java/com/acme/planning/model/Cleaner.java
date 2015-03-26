@@ -2,28 +2,28 @@ package com.acme.planning.model;
 
 public class Cleaner {
 
-	private int id;
+	private Long id;
 	private DayOfWeek dayOfWeek;
 	private Location cleanerLocation;
 
-	public Cleaner(int id, DayOfWeek dayOfWeek, Location cleanerLocation) {
+
+
+
+	public Cleaner() {
+		super();
+	}
+
+	public Cleaner(Long id, DayOfWeek dayOfWeek) {
 		super();
 		this.id = id;
 		this.dayOfWeek = dayOfWeek;
-		this.cleanerLocation = cleanerLocation;
 	}
 
-	public Cleaner(int id, DayOfWeek dayOfWeek) {
-		super();
-		this.id = id;
-		this.dayOfWeek = dayOfWeek;
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
