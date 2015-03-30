@@ -130,7 +130,7 @@ public class CleaningSolutionApp {
 		HouseCleaningSpot houseCleaningSpot42 = new HouseCleaningSpot(new Long(42),house4, 402);
 		
 		DayOfWeek dayOfWeek5 = new DayOfWeek(new Long(5), "Friday");
-		House house5 = new House(new Long(5555), "E", dayOfWeek5);
+		House house5 = new House(new Long(5555), "E", dayOfWeek3);
 		HouseCleaningSpot houseCleaningSpot51 = new HouseCleaningSpot(new Long(51),house5, 501);
 		HouseCleaningSpot houseCleaningSpot52 = new HouseCleaningSpot(new Long(52),house5, 502);
 		HouseCleaningSpot houseCleaningSpot53 = new HouseCleaningSpot(new Long(53),house5, 503);
